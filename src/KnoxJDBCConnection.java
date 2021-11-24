@@ -1,3 +1,5 @@
+package cloudera.pse.demo.knox;
+
 import java.sql.*;
 
 public class KnoxJDBCConnection
