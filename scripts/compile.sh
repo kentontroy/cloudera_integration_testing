@@ -1,1 +1,1 @@
-javac -cp $CLASSPATH KnoxJDBCConnection.java
+javac -cp $CLASSPATH -d ../classes KnoxJDBCConnection.java
