@@ -1,0 +1,1 @@
+java -cp $CLASSPATH KnoxJDBCConnection
