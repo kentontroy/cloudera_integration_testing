@@ -10,4 +10,4 @@ export CLASSPATH=${CLASSPATH}:${CLOUDERA_JAR_PATH}/commons-codec-1.9.jar:${CLOUD
 export CLASSPATH=${CLASSPATH}:${CLOUDERA_JAR_PATH}/httpcore-4.4.14.jar:${CLOUDERA_JAR_PATH}/jackson-core-2.12.1.jar
 export CLASSPATH=${CLASSPATH}:${CLOUDERA_JAR_PATH}/hive-jdbc-3.1.3000.7.1.7.0-551-standalone.jar
 export CLASSPATH=${CLASSPATH}:${CLOUDERA_JAR_PATH}/libthrift-0.9.3.jar
-export CLASSPATH=${CLASSPATH}:${CLOUDERA_JAR_PATH}/jackson-databind-2.12.1.jar:.
+export CLASSPATH=${CLASSPATH}:${CLOUDERA_JAR_PATH}/jackson-databind-2.12.1.jar:../classes
