@@ -1,8 +1,8 @@
-package cloudera.pse.demo.knox;
+package cloudera.pse.demo.jdbc;
 
 import java.sql.*;
 
-public class KnoxJDBCConnection
+public class JDBCConnection
 {
   public static String JDBC_URL = "";
   static
