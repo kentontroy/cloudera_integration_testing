@@ -46,4 +46,7 @@ drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2
 
 ```
 
+```
+https://docs.cloudera.com/cdp-private-cloud-base/7.1.6/security-how-to-guides/topics/cm-security-browser-access-kerberos-protected-url.html
 
+```
