@@ -1,1 +1,0 @@
-beeline -u "jdbc:hive2://ip-10-0-160-242.us-west-1.compute.internal:8443/;ssl=true;sslTrustStore=/etc/pki/java/cacerts;trustStorePassword=changeit;transportMode=http;httpPath=gateway/cdp-proxy-api/hive" -n knox_user -p password
