@@ -44,6 +44,61 @@ drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2
 drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/snapshot_metadata
 drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/tlog
 
+# Add a document to a collection
+sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.internal:8995/api/collections/logs/update'\
+'?split=/exams'\
+'&f=first:/first'\
+'&f=last:/last'\
+'&f=grade:/grade'\
+'&f=course:/exams/course'\
+'&f=test:/exams/test'\
+'&f=score:/exams/score'\
+ -H 'Content-type:application/json' -d '
+{
+  "first": "John",
+  "last": "Doe",
+  "grade": 8,
+  "exams": [
+    {
+      "course" : "Precalculus",
+      "test"   : "term1",
+      "score"  : 90},
+    {
+      "course" : "Biology",
+      "test"   : "term1",
+      "score"  : 86}
+  ]
+}'
+
+  "responseHeader":{
+    "rf":1,
+    "status":0,
+    "QTime":174}}
+    
+# Query the collection
+sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.internal:8995/api/collections/logs/select'\
+'?q=course:Biology' -H 'Content-type:application/json'
+
+{
+  "responseHeader":{
+    "zkConnected":true,
+    "status":0,
+    "QTime":0,
+    "params":{
+      "q":"course:Biology",
+      "json":""}},
+  "response":{"numFound":1,"start":0,"docs":[
+      {
+        "first":["John"],
+        "last":["Doe"],
+        "grade":[8],
+        "course":["Biology"],
+        "test":["term1"],
+        "score":[86],
+        "id":"4bcecab6-61cb-40ae-9620-9f1ddd62a0f0",
+        "_version_":1723506523821309952}]
+  }}
+
 ```
 
 ```
