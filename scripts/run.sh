@@ -1,1 +1,1 @@
-java -cp $CLASSPATH cloudera.pse.demo.knox.KnoxJDBCConnection
+java -cp $CLASSPATH com.cloudera.pse.demo.KnoxJDBCConnection
