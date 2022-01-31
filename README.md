@@ -31,6 +31,19 @@ sudo solrctl config --create logs_config managedTemplate -p immutable=false
 
 # Create a collection
 sudo solrctl collection --create logs -s 1 -c logs_config
+
+# View the instance directory created
+sudo solrctl instancedir --list
+...
+logs_config
+...
+
+# View the location in HDFS
+sudo hdfs dfs -ls /solr-infra/logs/core_node2/data
+drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/index
+drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/snapshot_metadata
+drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/tlog
+
 ```
 
 
