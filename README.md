@@ -103,5 +103,7 @@ sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.interna
 
 ```
 https://docs.cloudera.com/cdp-private-cloud-base/7.1.6/security-how-to-guides/topics/cm-security-browser-access-kerberos-protected-url.html
+https://solr.apache.org/docs/8_4_0/solr-solrj/org/apache/solr/client/solrj/impl/Http2SolrClient.Builder.html
+https://solr.apache.org/docs/8_4_0/solr-solrj/org/apache/solr/client/solrj/embedded/SSLConfig.html
 
 ```
