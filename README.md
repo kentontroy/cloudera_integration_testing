@@ -6,7 +6,7 @@ https://docs.cloudera.com/cdp-private-cloud-base/7.1.3/search-managing/topics/se
 ```
 beeline -u "jdbc:hive2://ip-10-0-160-242.us-west-1.compute.internal:8443/;ssl=true;sslTrustStore=/etc/pki/java/cacerts;trustStorePassword=changeit;transportMode=http;httpPath=gateway/cdp-proxy-api/hive" -n knox_user -p password
 ```
-# Ensure SOLR_ZK_ENSEMBLE is set
+## Ensure SOLR_ZK_ENSEMBLE is set
 ```
 source /etc/solr/conf/solr-env.sh
 
@@ -14,7 +14,7 @@ zookeeper-client
 > get /solr-infra/security.json
 ```
 
-# Design
+## Design
 ```
 A collection has a configuration and a schema. It is essentially a logical index.
 The logical index can be spread across multiple servers in a SolrCloud.
@@ -25,33 +25,33 @@ One of these replicas will be designated the leader.
 A core is that part of a server catering to one collection. e.g it can be a JVM running one-to-many shards
 ```
 
-# Get a Kerberos ticket for Solr
+## Get a Kerberos ticket for Solr
 ```
 kinit -kt /var/run/cloudera-scm-agent/process/235-solr-SOLR_SERVER/solr.keytab solr/ip-10-0-160-242.us-west-1.compute.internal@CLOUDERA.LOCAL
 ```
-# Create a configuration
+## Create a configuration
 ```
 sudo solrctl config --create logs_config managedTemplate -p immutable=false
 ```
-# Create a collection
+## Create a collection
 ```
 sudo solrctl collection --create logs -s 1 -c logs_config
 ```
-# View the instance directory created
+## View the instance directory created
 ```
 sudo solrctl instancedir --list
 ...
 logs_config
 ...
 ```
-# View the location in HDFS
+## View the location in HDFS
 ```
 sudo hdfs dfs -ls /solr-infra/logs/core_node2/data
 drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/index
 drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/snapshot_metadata
 drwxr-xr-x   - solr solr          0 2022-01-30 23:52 /solr-infra/logs/core_node2/data/tlog
 ```
-# Add a document to a collection
+## Add a document to a collection
 ```
 sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.internal:8995/api/collections/logs/update'\
 '?split=/exams'\
@@ -83,7 +83,7 @@ sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.interna
     "status":0,
     "QTime":174}}
 ```
-# Query the collection
+## Query the collection
 ```
 sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.internal:8995/api/collections/logs/select'\
 '?q=course:Biology' -H 'Content-type:application/json'
@@ -109,7 +109,7 @@ sudo curl -k --negotiate -u : 'https://ip-10-0-160-242.us-west-1.compute.interna
   }}
 ```
 
-# References
+## References
 ```
 https://docs.cloudera.com/cdp-private-cloud-base/7.1.6/security-how-to-guides/topics/cm-security-browser-access-kerberos-protected-url.html
 https://solr.apache.org/docs/8_4_0/solr-solrj/org/apache/solr/client/solrj/impl/Http2SolrClient.Builder.html
