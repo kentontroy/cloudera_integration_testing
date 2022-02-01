@@ -110,5 +110,5 @@ https://docs.cloudera.com/cdp-private-cloud-base/7.1.6/security-how-to-guides/to
 https://solr.apache.org/guide/8_4/kerberos-authentication-plugin.html
 https://solr.apache.org/docs/8_4_0/solr-solrj/org/apache/solr/client/solrj/impl/Http2SolrClient.Builder.html
 https://solr.apache.org/docs/8_4_0/solr-solrj/org/apache/solr/client/solrj/embedded/SSLConfig.html
-
+https://stackoverflow.com/questions/38509837/when-using-negotiate-with-curl-is-a-keytab-file-required
 ```
